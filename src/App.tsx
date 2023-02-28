@@ -1,6 +1,7 @@
 import React from "react";
+import { RecoilRoot } from "recoil";
 import { createGlobalStyle } from "styled-components";
-import ToDoList from "./ToDoList";
+import ToDoList from "./components/ToDoList";
 import { theme } from "./theme";
 
 const GlobalStyle = createGlobalStyle`
