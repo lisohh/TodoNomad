@@ -52,7 +52,11 @@ function ToDoList() {
   });
   const onValid = (data: IForm) => {
     if (data.password !== data.password1) {
-      setError("password1", { message: "패스워드가 일치하지 않아요." });
+      setError(
+        "password1",
+        { message: "패스워드가 일치하지 않아요." },
+        { shouldFocus: true }
+      );
     }
     setError("extraError", { message: "서버가 끊겼나봐요" });
     console.log(data);
