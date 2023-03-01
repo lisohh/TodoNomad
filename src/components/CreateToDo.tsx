@@ -18,14 +18,15 @@ function CreateToDo() {
     setValue("toDo", "");
   };
   return (
-    <form onSubmit={handleSubmit(handleValid)}>
+    <form onSubmit={handleSubmit(handleValid)} className="flex justify-center">
       <input
+        className="input input-bordered input-accent w-full max-w-xs m-4"
         {...register("toDo", {
           required: "Please write a To Do",
         })}
         placeholder="Write a to do"
       />
-      <button>Add</button>
+      <button className="btn btn-primary m-4 ml-0">Add</button>
     </form>
   );
 }

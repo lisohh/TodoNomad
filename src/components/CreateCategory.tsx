@@ -20,10 +20,15 @@ function CreateCategory() {
   };
   return (
     <div>
-      <h1>To Dos</h1>
-      <hr />
-      <form onSubmit={handleSubmit(onValid)}>
+      <h1 className="text-4xl font-sans font-semibold text-center m-4">
+        To Dos
+      </h1>
+      <form
+        onSubmit={handleSubmit(onValid)}
+        className="flex justify-center m-4"
+      >
         <input
+          className="input input-bordered input-accent w-full max-w-xs"
           {...register("category", {
             required: "Please write a category",
             validate: {
@@ -34,7 +39,7 @@ function CreateCategory() {
           placeholder="Write a category"
         />
         {errors.category?.message && <span>{errors.category.message}</span>}
-        <button className="btn btn-primary">Add</button>
+        <button className="btn btn-primary ml-4">Add</button>
       </form>
     </div>
   );

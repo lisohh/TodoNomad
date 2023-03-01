@@ -9,7 +9,6 @@ function ToDo({ text, category, id }: IToDo) {
     } = event;
     setToDos((oldToDos) => {
       const targetIndex = oldToDos.findIndex((toDo) => toDo.id === id);
-      const oldToDo = oldToDos[targetIndex];
       const newToDo = { text, id, category: name as any };
       return [
         ...oldToDos.slice(0, targetIndex),
@@ -20,19 +19,31 @@ function ToDo({ text, category, id }: IToDo) {
   };
   return (
     <li>
-      <span>{text}</span>
+      <span className="text-lg font-medium mr-6">{text}</span>
       {category !== "DOING" && (
-        <button name={"DOING"} onClick={onClick}>
+        <button
+          className="btn btn-secondary mr-2"
+          name={"DOING"}
+          onClick={onClick}
+        >
           Doing
         </button>
       )}
       {category !== "TO_DO" && (
-        <button name={"TO_DO"} onClick={onClick}>
+        <button
+          className="btn btn-secondary mr-2"
+          name={"TO_DO"}
+          onClick={onClick}
+        >
           To Do
         </button>
       )}
       {category !== "DONE" && (
-        <button name={"DONE"} onClick={onClick}>
+        <button
+          className="btn btn-secondary mr-2"
+          name={"DONE"}
+          onClick={onClick}
+        >
           Done
         </button>
       )}

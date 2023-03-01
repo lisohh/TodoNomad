@@ -4,6 +4,7 @@ import App from "./App";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme";
 import { RecoilRoot } from "recoil";
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>

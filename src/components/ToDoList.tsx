@@ -33,43 +33,49 @@ function ToDoList() {
 
   return (
     <div>
-      <div>
+      <div className="flex justify-center gap-6 mb-4">
         {categories.map((categoryOption) => (
           <React.Fragment key={categoryOption}>
             <label>
               <input
+                className="radio radio-primary align-middle"
                 onChange={onChange}
                 type="radio"
                 name="category"
                 value={categoryOption}
                 checked={categoryOption === category}
               />
-              {categoryOption}
+              <span className="align-middle text-lg font-medium ml-2">
+                {categoryOption}
+                <button
+                  className="btn btn-accent ml-2"
+                  onClick={(e) => {
+                    deleteCategoryOption(categoryOption);
+                  }}
+                >
+                  delete
+                </button>
+              </span>
             </label>
-            <button
-              onClick={(e) => {
-                deleteCategoryOption(categoryOption);
-              }}
-            >
-              delete
-            </button>
           </React.Fragment>
         ))}
       </div>
-      <hr />
-      <CreateToDo />
-      {filteredToDos?.map((toDo) => (
-        <React.Fragment key={toDo.id}>
-          <ToDo {...toDo} />
-          <button
-            onClick={(e) => {
-              deleteTodo(toDo.id);
-            }}
-          >
-            Delete
-          </button>
-        </React.Fragment>
-      ))}
+      <section className="bg-lime-100 min-h-screen">
+        <CreateToDo />
+        {filteredToDos?.map((toDo) => (
+          <div key={toDo.id} className="flex justify-center m-2">
+            <ToDo {...toDo} />
+            <button
+              className="btn btn-secondary ml-0"
+              onClick={(e) => {
+                deleteTodo(toDo.id);
+              }}
+            >
+              Delete
+            </button>
+          </div>
+        ))}
+      </section>
     </div>
   );
 }

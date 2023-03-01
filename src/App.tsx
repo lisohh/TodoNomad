@@ -1,9 +1,7 @@
 import React from "react";
-import { RecoilRoot } from "recoil";
 import { createGlobalStyle } from "styled-components";
 import CreateCategory from "./components/CreateCategory";
 import ToDoList from "./components/ToDoList";
-import { theme } from "./theme";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
