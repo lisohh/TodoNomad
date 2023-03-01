@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/TodoNomad/static/css/main.75180ec6.css",
-    "main.js": "/TodoNomad/static/js/main.80207867.js",
+    "main.css": "/TodoNomad/static/css/main.98e874ca.css",
+    "main.js": "/TodoNomad/static/js/main.6b282df1.js",
     "index.html": "/TodoNomad/index.html",
-    "main.75180ec6.css.map": "/TodoNomad/static/css/main.75180ec6.css.map",
-    "main.80207867.js.map": "/TodoNomad/static/js/main.80207867.js.map"
+    "main.98e874ca.css.map": "/TodoNomad/static/css/main.98e874ca.css.map",
+    "main.6b282df1.js.map": "/TodoNomad/static/js/main.6b282df1.js.map"
   },
   "entrypoints": [
-    "static/css/main.75180ec6.css",
-    "static/js/main.80207867.js"
+    "static/css/main.98e874ca.css",
+    "static/js/main.6b282df1.js"
   ]
 }
