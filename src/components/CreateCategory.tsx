@@ -38,7 +38,9 @@ function CreateCategory() {
           })}
           placeholder="Write a category"
         />
-        {errors.category?.message && <span>{errors.category.message}</span>}
+        {errors.category?.message && (
+          <span className="text-xl p-2">{errors.category.message}</span>
+        )}
         <button className="btn btn-primary ml-4">Add</button>
       </form>
     </div>
