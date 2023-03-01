@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TodoNomad/static/css/main.75180ec6.css",
+    "main.js": "/TodoNomad/static/js/main.80207867.js",
+    "index.html": "/TodoNomad/index.html",
+    "main.75180ec6.css.map": "/TodoNomad/static/css/main.75180ec6.css.map",
+    "main.80207867.js.map": "/TodoNomad/static/js/main.80207867.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.75180ec6.css",
+    "static/js/main.80207867.js"
+  ]
+}
