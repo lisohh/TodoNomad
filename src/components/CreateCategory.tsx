@@ -34,7 +34,7 @@ function CreateCategory() {
           placeholder="Write a category"
         />
         {errors.category?.message && <span>{errors.category.message}</span>}
-        <button>Add</button>
+        <button className="btn btn-primary">Add</button>
       </form>
     </div>
   );
