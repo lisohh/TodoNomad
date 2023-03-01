@@ -1,29 +1,74 @@
 import React, { useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { Categories, categoryState, toDoSelector, toDoState } from "./atoms";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import {
+  type IToDo,
+  currentCategoryState,
+  categoryOptionsState,
+  toDoSelector,
+  toDoState,
+} from "./atoms";
 import CreateToDo from "./CreateToDo";
 import ToDo from "./ToDo";
 
 function ToDoList() {
   //const toDos = useRecoilValue(toDoState);
   //console.log(toDos);
-  const toDos = useRecoilValue(toDoSelector);
-  const [category, setCategory] = useRecoilState(categoryState);
-  const onInput = (event: React.FormEvent<HTMLSelectElement>) => {
+  const filteredToDos = useRecoilValue(toDoSelector);
+  const setTodos = useSetRecoilState(toDoState);
+  const [categories, setCategories] = useRecoilState(categoryOptionsState);
+  const [category, setCategory] = useRecoilState(currentCategoryState);
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCategory(event.currentTarget.value as any);
   };
+
+  const deleteTodo = (targetId: IToDo["id"]) => {
+    setTodos((old) => old.filter((toDo) => toDo.id !== targetId));
+  };
+  const deleteCategoryOption = (targetCategory: string) => {
+    setCategories((old) =>
+      old.filter((category) => category !== targetCategory)
+    );
+    setTodos((old) => old.filter((toDo) => toDo.category !== targetCategory));
+  };
+
   return (
     <div>
-      <h1>To Dos</h1>
+      <div>
+        {categories.map((categoryOption) => (
+          <React.Fragment key={categoryOption}>
+            <label>
+              <input
+                onChange={onChange}
+                type="radio"
+                name="category"
+                value={categoryOption}
+                checked={categoryOption === category}
+              />
+              {categoryOption}
+            </label>
+            <button
+              onClick={(e) => {
+                deleteCategoryOption(categoryOption);
+              }}
+            >
+              delete
+            </button>
+          </React.Fragment>
+        ))}
+      </div>
       <hr />
-      <select value={category} onInput={onInput}>
-        <option value={Categories.TO_DO}>To Do</option>
-        <option value={Categories.DOING}>Doing</option>
-        <option value={Categories.DONE}>Done</option>
-      </select>
       <CreateToDo />
-      {toDos?.map((toDo) => (
-        <ToDo key={toDo.id} {...toDo} />
+      {filteredToDos?.map((toDo) => (
+        <React.Fragment key={toDo.id}>
+          <ToDo {...toDo} />
+          <button
+            onClick={(e) => {
+              deleteTodo(toDo.id);
+            }}
+          >
+            Delete
+          </button>
+        </React.Fragment>
       ))}
     </div>
   );

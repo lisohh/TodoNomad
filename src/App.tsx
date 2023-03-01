@@ -1,6 +1,7 @@
 import React from "react";
 import { RecoilRoot } from "recoil";
 import { createGlobalStyle } from "styled-components";
+import CreateCategory from "./components/CreateCategory";
 import ToDoList from "./components/ToDoList";
 import { theme } from "./theme";
 
@@ -73,6 +74,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <CreateCategory />
       <ToDoList />
     </>
   );
